@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notesapp/constants/constants.dart';
 import 'package:notesapp/views/home_view.dart';
 
 void main() {
@@ -13,7 +14,11 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        // make font here to apply it in all pages
+        fontFamily: kFontFamily,
+      ),
       initialRoute: HomeView.id,
       routes: {HomeView.id: (context) => const HomeView()},
     );
