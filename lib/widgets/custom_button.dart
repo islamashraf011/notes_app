@@ -9,7 +9,8 @@ class CustomBotton extends StatelessWidget {
       onTap: () {},
       child: Container(
         height: 50,
-        // this line = double.infinity but doesn't make problems like like it
+        // this line = double.infinity but doesn't make problems like it
+        //Media Query better than double.infinity
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),

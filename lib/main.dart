@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/constants/constants.dart';
+import 'package:notesapp/views/edit_notes_view.dart';
 import 'package:notesapp/views/home_view.dart';
 
 void main() {
@@ -20,7 +21,10 @@ class NotesApp extends StatelessWidget {
         fontFamily: kFontFamily,
       ),
       initialRoute: HomeView.id,
-      routes: {HomeView.id: (context) => const HomeView()},
+      routes: {
+        HomeView.id: (context) => const HomeView(),
+        EditNoteView.id: (context) => const EditNoteView(),
+      },
     );
   }
 }
