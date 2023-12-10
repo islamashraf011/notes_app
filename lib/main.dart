@@ -23,6 +23,8 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        // make class cubit reach to all screens in app all time
+        //but it is better to know only page that used cubit in it not here
         BlocProvider(create: (context) => AddNotesCubit()),
       ],
       child: MaterialApp(
