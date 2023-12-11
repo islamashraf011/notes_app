@@ -19,7 +19,8 @@ class NoteModel extends HiveObject {
   @HiveField(3)
   final int color;
   //why i use int with color ?
-
+  //عشان لو روحت استخدمت اوبجيكت يبقي كدا لازم اعمله (ادابتر) هو كمان
+  //عشان كدا باختياري لو مش عايز اعمل كدا بشوف حل بديل ليها زي هنا كدا
   NoteModel(
       {required this.title,
       required this.subTitle,
