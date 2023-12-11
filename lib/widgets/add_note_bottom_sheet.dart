@@ -8,28 +8,32 @@ class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: BlocConsumer<AddNotesCubit, AddNotesState>(
-        listener: (context, state) {
-          if (state is AddNoteSuccesState) {
-            Navigator.pop(context);
-          }
-
-          if (state is AddNoteFailureState) {
-            print("Failed ${state.errMessage}");
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-            //this is simple way to check state and show Loading
-            //just use ternary operator
-            inAsyncCall: state is AddNoteLoadingState ? true : false,
-            child: const SingleChildScrollView(
-              child: AddNoteForm(),
-            ),
-          );
-        },
+    //use bloc provider here it is better and make cubit create and close with this page only.
+    return BlocProvider<AddNotesCubit>(
+      create: (context)=> AddNotesCubit(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: BlocConsumer<AddNotesCubit, AddNotesState>(
+          listener: (context, state) {
+            if (state is AddNoteSuccesState) {
+              Navigator.pop(context);
+            }
+      
+            if (state is AddNoteFailureState) {
+              print("Failed ${state.errMessage}");
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+              //this is simple way to check state and show Loading
+              //just use ternary operator
+              inAsyncCall: state is AddNoteLoadingState ? true : false,
+              child: const SingleChildScrollView(
+                child: AddNoteForm(),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
