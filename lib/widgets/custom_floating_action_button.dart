@@ -16,6 +16,7 @@ class CustomFloatingActionButton extends StatelessWidget {
       ),
       onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: true,
           //only changes apply on the shape that make here not inside (builder)
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
