@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomBotton extends StatelessWidget {
-  const CustomBotton({super.key, this.onTap, required this.isLoading});
+  const CustomBotton({super.key, this.onTap, this.isLoading = false});
   final void Function()? onTap;
   final bool isLoading;
   @override
