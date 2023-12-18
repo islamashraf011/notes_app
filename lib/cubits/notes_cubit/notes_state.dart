@@ -5,7 +5,7 @@ sealed class NotesState {}
 
 final class NotesInitial extends NotesState {}
 
-final class NotesLoadingState extends NotesState {}
+//i remove Loading State becuase data not from Future
 
 final class NotesSuccessState extends NotesState {
   //it depends what i need (store list here or in cubit)
