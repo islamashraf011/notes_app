@@ -17,6 +17,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
 
           if (state is AddNoteFailureState) {
+            // ignore: avoid_print
             print("Failed ${state.errMessage}");
           }
         },
