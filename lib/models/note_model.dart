@@ -7,6 +7,7 @@ part 'note_model.g.dart';
 // i used command (flutter packages pub run build_runner build) to generate code
 
 // this step (extends Hive Object) optional put it is good to use it
+//good because it make me delete note quickly like now
 
 @HiveType(typeId: 0) // this number unique for this class
 class NoteModel extends HiveObject {

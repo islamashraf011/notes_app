@@ -39,7 +39,9 @@ class CustomNoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  notes.delete();
+                },
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.black,
