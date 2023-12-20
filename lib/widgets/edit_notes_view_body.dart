@@ -5,6 +5,8 @@ import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/custom_app_bar.dart';
 import 'package:notesapp/widgets/custom_text_field.dart';
 
+import 'custom_show_dialog.dart';
+
 class EditNotesViewBody extends StatefulWidget {
   const EditNotesViewBody({super.key, required this.notes});
   final NoteModel notes;
@@ -32,11 +34,21 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
             title: "Edit Note",
             icon: Icons.check,
             onpressed: () {
-              widget.notes.title = title ?? widget.notes.title;
-              widget.notes.subTitle = subTitle ?? widget.notes.subTitle;
-              widget.notes.save();
-              BlocProvider.of<NotesCubit>(context).getAllNotes();
-              Navigator.pop(context);
+              final newTitle = title ?? widget.notes.title;
+              final newSubTitle = subTitle ?? widget.notes.subTitle;
+
+              if (newTitle != widget.notes.title ||
+                  newSubTitle != widget.notes.subTitle) {
+                widget.notes.title = newTitle;
+                widget.notes.subTitle = newSubTitle;
+                //
+                widget.notes.save();
+                BlocProvider.of<NotesCubit>(context).getAllNotes();
+                Navigator.pop(context);
+                showdialog(context, "Successful");
+              } else {
+                Navigator.pop(context);
+              }
             },
           ),
           const SizedBox(
