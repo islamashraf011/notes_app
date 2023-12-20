@@ -12,13 +12,13 @@ part 'note_model.g.dart';
 @HiveType(typeId: 0) // this number unique for this class
 class NoteModel extends HiveObject {
   @HiveField(0)
-  final String title;
+  String title;
   @HiveField(1)
-  final String subTitle;
+  String subTitle;
   @HiveField(2) // this index unique for this fields can't repeat it
   final String date;
   @HiveField(3)
-  final int color;
+  int color;
   //why i use int with color ?
   //عشان لو روحت استخدمت اوبجيكت يبقي كدا لازم اعمله (ادابتر) هو كمان
   //عشان كدا باختياري لو مش عايز اعمل كدا بشوف حل بديل ليها زي هنا كدا
