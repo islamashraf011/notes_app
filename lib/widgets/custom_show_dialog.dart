@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Future<dynamic> showdialog(BuildContext context, String message) {
+Future<dynamic> customShowDialog(BuildContext context, String message) {
   return showDialog(
     context: context,
     builder: (context) {

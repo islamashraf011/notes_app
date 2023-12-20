@@ -45,7 +45,7 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
                 widget.notes.save();
                 BlocProvider.of<NotesCubit>(context).getAllNotes();
                 Navigator.pop(context);
-                showdialog(context, "Successful");
+                customShowDialog(context, "Successful");
               } else {
                 Navigator.pop(context);
               }
