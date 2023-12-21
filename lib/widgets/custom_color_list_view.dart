@@ -18,18 +18,18 @@ class _ColorItemListViewState extends State<ColorItemListView> {
     return SizedBox(
       height: 69,
       child: ListView.builder(
-        itemCount: colors.length,
+        itemCount: kColors.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return ColorItem(
             onTap: () {
               curentIndex = index;
               //and when add note make value change depend on (color)index that i choose
-              BlocProvider.of<AddNotesCubit>(context).color = colors[index];
+              BlocProvider.of<AddNotesCubit>(context).color = kColors[index];
               setState(() {});
             },
             isActive: curentIndex == index,
-            color: colors[index],
+            color: kColors[index],
           );
         },
       ),
