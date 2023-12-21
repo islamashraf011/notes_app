@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'custom_button.dart';
+import 'custom_color_list_view.dart';
 import 'custom_text_field.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -26,15 +27,18 @@ class _AddNoteFormState extends State<AddNoteForm> {
       key: formKey,
       autovalidateMode: autovalidateMode,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_drop_down,
-              size: 40,
+            icon: const Align(
+              alignment: Alignment.topRight,
+              child: Icon(
+                Icons.arrow_drop_down,
+                size: 40,
+              ),
             ),
           ),
           const SizedBox(
@@ -57,7 +61,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxlines: 5,
           ),
           const SizedBox(
-            height: 60,
+            height: 25,
+          ),
+          const ColorItemListView(),
+          const SizedBox(
+            height: 25,
           ),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
