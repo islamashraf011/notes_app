@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notesapp/constants/constants.dart';
+import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'custom_color_item.dart';
 
 class ColorItemListView extends StatefulWidget {
@@ -22,6 +24,8 @@ class _ColorItemListViewState extends State<ColorItemListView> {
           return ColorItem(
             onTap: () {
               curentIndex = index;
+              //and when add note make value change depend on (color)index that i choose
+              BlocProvider.of<AddNotesCubit>(context).color = colors[index];
               setState(() {});
             },
             isActive: curentIndex == index,
