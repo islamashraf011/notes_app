@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ColorItem extends StatelessWidget {
-  const ColorItem({super.key, required this.isActive, this.onTap});
+  const ColorItem(
+      {super.key, required this.isActive, this.onTap, required this.color});
   final bool isActive;
   final Function()? onTap;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -11,16 +13,16 @@ class ColorItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 15),
         child: isActive
-            ? const CircleAvatar(
+            ? CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 37,
                 child: CircleAvatar(
-                  backgroundColor: Colors.red,
+                  backgroundColor: color,
                   radius: 32,
                 ),
               )
-            : const CircleAvatar(
-                backgroundColor: Colors.red,
+            : CircleAvatar(
+                backgroundColor: color,
                 radius: 33,
               ),
       ),
